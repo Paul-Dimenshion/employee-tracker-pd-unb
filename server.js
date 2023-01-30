@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const mysql = require('mysql');
 const cTable = require('console.table');
 require('dotenv').config();
-
+console.log(process.env.password)
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     port: 3306,
