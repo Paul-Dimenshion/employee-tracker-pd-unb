@@ -208,7 +208,7 @@ addAnEmployee = () => {
                     type: 'rawlist',
                     message: 'Who is the new employee\'s manager?',
                     choices: employees
-                }
+                },
                 {
                     name: 'deptName',
                     type: 'rawlist',
