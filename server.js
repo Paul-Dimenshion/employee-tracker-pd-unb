@@ -17,6 +17,7 @@ connection.connect((err) => {
     startApp();
 });
 
+// query request
 startApp = () => {
     inquirer.prompt([
         {
@@ -76,6 +77,7 @@ startApp = () => {
     })
 }
 
+// Departments view
 viewAllDepartments = () => {
     connection.query(`SELECT * FROM department ORDER BY department_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -84,6 +86,7 @@ viewAllDepartments = () => {
     })
 };
 
+// Roles view
 viewAllRoles = () => {
     connection.query(`SELECT role.role_id, role.title, role.salary, department.department_name, department.department_id FROM role JOIN department ON role.department_id = department.department_id ORDER BY role.role_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -92,6 +95,7 @@ viewAllRoles = () => {
     })
 };
 
+// Employees view
 viewAllEmployees = () => {
     connection.query(`SELECT e.employee_id, e.first_name, e.last_name, role.title, department.department_name, role.salary, CONCAT(m.first_name, ' ', m.last_name) manager FROM employee m RIGHT JOIN employee e ON e.manager_id = m.employee_id JOIN role ON e.role_id = role.role_id JOIN department ON department.department_id = role.department_id ORDER BY e.employee_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -100,6 +104,7 @@ viewAllEmployees = () => {
     })
 };
 
+// Employees view by manager
 viewAllEmployeesByManager = () => {
     connection.query(`SELECT employee_id, first_name, last_name FROM employee ORDER BY employee_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -122,6 +127,7 @@ viewAllEmployeesByManager = () => {
     })
 }
 
+// Add department
 addADepartment = () => {
     inquirer.prompt([
         {
@@ -142,6 +148,7 @@ addADepartment = () => {
     })
 };
 
+// Add role
 addARole = () => {
     connection.query(`SELECT * FROM department;`, (err, res) => {
         if (err) throw err;
@@ -179,6 +186,7 @@ addARole = () => {
     })
 };
 
+// Add Employee
 addAnEmployee = () => {
     connection.query(`SELECT * FROM role;`, (err, res) => {
         if (err) throw err;
@@ -240,6 +248,7 @@ addAnEmployee = () => {
     })
 };
 
+// Update employee's role
 updateEmployeeRole = () => {
     connection.query(`SELECT * FROM role;`, (err, res) => {
         if (err) throw err;
@@ -280,6 +289,7 @@ updateEmployeeRole = () => {
     })
 }
 
+// Update employees manager
 updateEmployeesManager = () => {
     connection.query(`SELECT * FROM employee;`, (err, res) => {
         if (err) throw err;
@@ -316,6 +326,7 @@ updateEmployeesManager = () => {
     })
 };
 
+// Remove department
 removeADepartment = () => {
     connection.query(`SELECT * FROM department ORDER BY department_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -343,6 +354,7 @@ removeADepartment = () => {
     })
 }
 
+// Remove role
 removeARole = () => {
     connection.query(`SELECT * FROM role ORDER BY role_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -370,6 +382,7 @@ removeARole = () => {
     })
 }
 
+// Remove employee
 removeAnEmployee = () => {
     connection.query(`SELECT * FROM employee ORDER BY employee_id ASC;`, (err, res) => {
         if (err) throw err;
@@ -397,6 +410,7 @@ removeAnEmployee = () => {
     })
 }
 
+// View department salary
 viewDepartmentSalary = () => {
     connection.query(`SELECT * FROM department ORDER BY department_id ASC;`, (err, res) => {
         if (err) throw err;
