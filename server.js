@@ -4,12 +4,11 @@ const cTable = require('console.table');
 require('dotenv').config();
 console.log(process.env.password)
 const connection = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 3306,
     user: 'db_user',
     password: 'EXAMPLE_PASSWORD',
     database: 'employeetrackerdb',
-    debug: true,
 });
 
 connection.connect((err) => {
