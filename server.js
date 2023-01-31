@@ -209,6 +209,12 @@ addAnEmployee = () => {
                     message: 'Who is the new employee\'s manager?',
                     choices: employees
                 }
+                {
+                    name: 'deptName',
+                    type: 'rawlist',
+                    message: 'Which department do you want to add the new employee\'s to?',
+                    choices: departments 
+                }
             ]).then((response) => {
                 connection.query(`INSERT INTO employee SET ?`, 
                 {
