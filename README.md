@@ -57,7 +57,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 ```
 
 ## Screenshot
-![Command Line](./)
+![Command Line](./img/scrsht.png)
 
 ## Video
 A link to the [Video](https://watch.screencastify.com/):
