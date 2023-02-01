@@ -216,12 +216,6 @@ addAnEmployee = () => {
                     type: 'rawlist',
                     message: 'Who is the new employee\'s manager?',
                     choices: employees
-                },
-                {
-                    name: 'deptName',
-                    type: 'rawlist',
-                    message: 'Which department do you want to add the new employee\'s to?',
-                    choices: departments 
                 }
             ]).then((response) => {
                 connection.query(`INSERT INTO employee SET ?`, 
@@ -230,13 +224,6 @@ addAnEmployee = () => {
                     last_name: response.lastName,
                     role_id: response.role,
                     manager_id: response.manager,
-                }, 
-                (err, res) => {
-                    if (err) throw err;
-                })
-                connection.query(`INSERT INTO role SET ?`, 
-                {
-                    department_id: response.dept,
                 }, 
                 (err, res) => {
                     if (err) throw err;
