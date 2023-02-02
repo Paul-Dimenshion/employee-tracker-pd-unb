@@ -60,9 +60,9 @@ THEN I am prompted to select an employee to update and their new role and this i
 ![Command Line](./img/scrsht.png)
 
 ## Video
-A link to the [Video](https://watch.screencastify.com/):
+A link to the [Video](https://watch.screencastify.com/v/EXYpiPwtsJuL0qZFOUGS):
 ```
-https://watch.screencastify.com/
+https://watch.screencastify.com/v/EXYpiPwtsJuL0qZFOUGS
 ```
 
 ## Link
